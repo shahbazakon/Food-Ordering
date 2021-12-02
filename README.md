@@ -1,11 +1,13 @@
-# Flutter Food App Ui
+# Flutter Food App UI
 
 The Flutter Application for food ordering
+
+The food ordering & delivery application designed based on the real-life scenario. Anyone can use this code on their own purpose. If you are interested please make your contribution to the code.
 
 
 # Application
 <div class="column" style = "float: center;">
-    <img src="https://user-images.githubusercontent.com/57652434/144084964-d93dd912-a8df-435a-83a3-24945fc8c08d.gif" height="50%">
+    <img src="https://user-images.githubusercontent.com/57652434/144481475-f3aa5986-5ee3-4de7-af16-d01abe2535d6.gif" height="50%">
   </div>
 
 ## Getting Started
