@@ -8,6 +8,7 @@ class FoodNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      fixedColor: Colors.redAccent,
         items: const [
           BottomNavigationBarItem(
               icon: Icon(Icons.pedal_bike_sharp),
