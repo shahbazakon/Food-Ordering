@@ -19,10 +19,11 @@ class _MyHomePageState extends State<MyHomePage> {
           backgroundColor: Colors.white,
           elevation: 0,
           title: const ListTile(
-            leading: Icon(Icons.location_on_outlined),
-            title: Text("Home"),
-            subtitle: Text("#1252 burail, near quilla,Sector 45 ,Chandigarh"),
+            leading: Icon(Icons.location_on_outlined,size: 35,color: Colors.redAccent,),
+            title: Text("Home",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.redAccent,fontSize: 18),),
+            subtitle: Text("#1252 burial, near quills,Sector 45 ,Chandigarh"),
             trailing: CircleAvatar(
+              backgroundImage: AssetImage('assets/ProfilePick.jpg'),
               backgroundColor: Colors.brown,
             ),
           )),
@@ -53,14 +54,22 @@ class _MyHomePageState extends State<MyHomePage> {
               childAspectRatio: 1,
               scrollDirection: Axis.horizontal,
               children: [
-                DishCard("assets/dish1.png","Name"),
-                DishCard("assets/dish2.png","Name"),
-                DishCard("assets/dish3.png","Name"),
-                DishCard("assets/dish4.png","Name"),
-                DishCard("assets/dish5.png","Name"),
-                DishCard("assets/dish6.png","Name"),
-                DishCard("assets/dish7.png","Name"),
-                DishCard("assets/dish8.png","Name"),
+                DishCard("assets/dish1.png","Fajitas"),
+                DishCard("assets/dish2.png","Hamburger"),
+                DishCard("assets/dish3.png","Galbi"),
+                DishCard("assets/dish4.png","Bibimbap"),
+                DishCard("assets/dish6.png","Potato chips"),
+                DishCard("assets/dish5.png","Masala dosa"),
+                DishCard("assets/dish7.png","Moo nam tok"),
+                DishCard("assets/dish8.png","Neapolitan"),
+                DishCard("assets/dish1.png","Fajitas"),
+                DishCard("assets/dish2.png","Hamburger"),
+                DishCard("assets/dish3.png","Galbi"),
+                DishCard("assets/dish4.png","Bibimbap"),
+                DishCard("assets/dish5.png","Masala dosa"),
+                DishCard("assets/dish7.png","Moo nam tok"),
+                DishCard("assets/dish8.png","Neapolitan"),
+                DishCard("assets/dish6.png","Potato chips"),
               ],
             ),
           );
@@ -96,13 +105,13 @@ class _MyHomePageState extends State<MyHomePage> {
         mainAxisSpacing: 2,
         childAspectRatio: 1 / .5,
         children: [
-          FoodOrderCard("assets/FoodOfferCard4.jpg", "Raju Chinese Festival",
+          FoodOrderCard("assets/FoodTemplate2.jpg", "Raju Chinese Festival",
               "43 mins", "30% OFF UpTo Rs.40"),
-          FoodOrderCard("assets/FoodOfferCard3.jpg", "Subway", "21 mins",
+          FoodOrderCard("assets/FoodTemplate3.jpeg", "Food Points   ", "21 mins",
               "20% OFF upto Rs.50"),
-          FoodOrderCard("assets/FoodOfferCard2.jpg", "Subway", "21 mins",
+          FoodOrderCard("assets/FoodTemplate4.webp", "Word Food Center", "21 mins",
               "20% OFF upto Rs.50"),
-          FoodOrderCard("assets/FoodOfferCard1.jpg", "Subway", "21 mins",
+          FoodOrderCard("assets/FoodTemplate5.jpg", "Food Corner   ", "21 mins",
               "20% OFF upto Rs.50"),
         ],
       ),
@@ -120,32 +129,42 @@ class _MyHomePageState extends State<MyHomePage> {
                 OrderImg,
                 fit: BoxFit.cover,
               ),
-              borderRadius: BorderRadius.circular(5),
+              borderRadius: BorderRadius.circular(6),
             ),
-            padding: EdgeInsets.all(4),
+            padding: EdgeInsets.all(8),
             height: 75,
             width: 75,
           ),
           Flexible(
-            child: Column(
-              children: [
-                Text(
-                  OrderName,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(fontSize: 12),
-                ),
-                Row(
-                  children: [
-                    const Icon(
-                      Icons.timer_rounded,
-                      size: 14,
-                      color: Colors.green,
-                    ),
-                    Text(OrderTime),
-                  ],
-                ),
-                Text(OdderOffer),
-              ],
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 12),
+              child: Column(
+                children: [
+                  Text(
+                    OrderName,
+                    textAlign: TextAlign.left,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(fontSize: 16,fontWeight: FontWeight.bold),
+                  ),
+                  Row(
+                    children: [
+                      const Icon(
+                        Icons.timer_rounded,
+                        size: 14,
+                        color: Colors.green,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: Text(OrderTime,textAlign: TextAlign.left,style: const TextStyle(fontSize: 14),),
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(1.0),
+                    child: Text(OdderOffer,textAlign: TextAlign.left,style: const TextStyle(color: Colors.blue,fontSize: 11)),
+                  ),
+                ],
+              ),
             ),
           )
         ],
@@ -155,8 +174,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   ListTile FoodSection(String MainHeading, String SubHeading) {
     return ListTile(
-      title: Text(MainHeading),
-      trailing: Text(SubHeading),
+      title: Text(MainHeading,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
+      trailing: Text(SubHeading,style: TextStyle(color: Colors.redAccent),),
     );
   }
 
@@ -198,6 +217,10 @@ class _MyHomePageState extends State<MyHomePage> {
         child: ListView(
           scrollDirection: Axis.horizontal,
           children: <Widget>[
+            FoodCategory("Pro"),
+            FoodCategory("Fastest Delivery"),
+            FoodCategory("Pure Veg"),
+            FoodCategory("Rating"),
             FoodCategory("Veg Food"),
             FoodCategory("Non-Veg Food"),
             FoodCategory("Fast Food"),
@@ -212,16 +235,36 @@ class _MyHomePageState extends State<MyHomePage> {
     return Container(
       child: Text(
         CategoryName,
+        style: TextStyle(color: Colors.black54),
         textAlign: TextAlign.center,
       ),
       margin: const EdgeInsets.all(4),
       padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 12),
-      // width: 100,
       decoration: BoxDecoration(
-        color: Colors.black12,
-        border: Border.all(color: Colors.black38),
-        borderRadius: BorderRadius.circular(20),
-      ),
+        border: Border.all(color: Colors.black12),
+        boxShadow: const [
+          BoxShadow(
+            color: Colors.black12,
+            offset: Offset(
+              1.0,
+              1.0,
+            ),
+            blurRadius: 4.0,
+            spreadRadius: 1.0,
+          ), //BoxShadow
+          BoxShadow(
+            color: Colors.white,
+            offset: Offset(0.0, 0.0),
+            blurRadius: 0.0,
+            spreadRadius: 0.0,
+          ), //BoxShadow
+        ],
+        borderRadius: const BorderRadius.all(
+          Radius.circular(10),
+        ),
+      )
+
+
     );
   }
 }

@@ -12,16 +12,33 @@ class FoodSearchBar extends StatelessWidget {
       margin: EdgeInsets.all(12),
       padding: const EdgeInsets.symmetric( horizontal: 16),
       decoration: BoxDecoration(
+        boxShadow: const [
+          BoxShadow(
+            color: Colors.black12,
+            offset: Offset(
+              2.0,
+              2.0,
+            ),
+            blurRadius: 10.0,
+            spreadRadius: 4.0,
+          ), //BoxShadow
+          BoxShadow(
+            color: Colors.white,
+            offset: Offset(0.0, 0.0),
+            blurRadius: 0.0,
+            spreadRadius: 0.0,
+          ), //BoxShadow
+        ],
         color: Colors.black38.withAlpha(10),
         borderRadius: const BorderRadius.all(
-          Radius.circular(10),
+          Radius.circular(15),
         ),
       ),
       child: Row(
         children: <Widget>[
-          Icon(
+          const Icon(
             Icons.search,
-            color: Colors.black.withAlpha(120),
+            color: Colors.redAccent,
           ),
           Expanded(
             child: TextField(
