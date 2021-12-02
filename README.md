@@ -1,6 +1,12 @@
-# flutter_food_app
+# Flutter Food App Ui
 
 The Flutter Application for food ordering
+
+
+# Application
+<div class="column" style = "float: center;">
+    <img src="https://user-images.githubusercontent.com/57652434/144084964-d93dd912-a8df-435a-83a3-24945fc8c08d.gif" height="50%">
+  </div>
 
 ## Getting Started
 
