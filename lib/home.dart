@@ -36,66 +36,75 @@ class _MyHomePageState extends State<MyHomePage> {
             FoodSection("Order Again", "View History"),
             FoodOrderSection(),
             FoodSection("Eat What Make You Happy", ""),
-            GridView.count(
-              crossAxisCount: 4,
-              mainAxisSpacing: 2,
-              crossAxisSpacing: 2,
-              scrollDirection: Axis.horizontal,
-              children: [
-            Container(
-              color: Colors.deepOrange,
-            ),
-            Container(
-              color: Colors.blue,
-            ),
-            Container(
-              color: Colors.deepPurple,
-            ),
-            Container(
-              color: Colors.pink,
-            ),
-            Container(
-              color: Colors.brown,
-            ),
-            Container(
-              color: Colors.black38,
-            ),
-            Container(
-              color: Colors.lime,
-            ),
-            Container(
-              color: Colors.cyanAccent,
-            ),
-              ],
-            )
+            dishSection()
           ],
         ),
       ),
     );
   }
 
-  Flexible FoodOrderSection() {
-    return Flexible(
-      flex: 2,
-      child: Container(
-        height: 180,
-        margin: EdgeInsets.symmetric(horizontal: 10),
-        child: GridView.count(
-          crossAxisCount: 2,
-          crossAxisSpacing: 2,
-          mainAxisSpacing: 2,
-          childAspectRatio: 1 / .5,
-          children: [
-            FoodOrderCard("assets/FoodOfferCard4.jpg", "Raju Chinese Festival",
-                "43 mins", "30% OFF UpTo Rs.40"),
-            FoodOrderCard("assets/FoodOfferCard3.jpg", "Subway", "21 mins",
-                "20% OFF upto Rs.50"),
-            FoodOrderCard("assets/FoodOfferCard2.jpg", "Subway", "21 mins",
-                "20% OFF upto Rs.50"),
-            FoodOrderCard("assets/FoodOfferCard1.jpg", "Subway", "21 mins",
-                "20% OFF upto Rs.50"),
-          ],
-        ),
+  SizedBox dishSection() {
+    return SizedBox(
+            height: 200,
+            child: GridView.count(
+              crossAxisCount: 2,
+              mainAxisSpacing: 2,
+              crossAxisSpacing: 2,
+              childAspectRatio: 1,
+              scrollDirection: Axis.horizontal,
+              children: [
+                DishCard("assets/dish1.png","Name"),
+                DishCard("assets/dish2.png","Name"),
+                DishCard("assets/dish3.png","Name"),
+                DishCard("assets/dish4.png","Name"),
+                DishCard("assets/dish5.png","Name"),
+                DishCard("assets/dish6.png","Name"),
+                DishCard("assets/dish7.png","Name"),
+                DishCard("assets/dish8.png","Name"),
+              ],
+            ),
+          );
+  }
+
+  GridTile DishCard(String _dishImg,String _dishName) {
+    return GridTile(
+                child: ClipRRect(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Image.asset(_dishImg),
+                  ),
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                footer: Padding(
+                  padding: const EdgeInsets.only(top: 4),
+                  child: Text(
+                    _dishName,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              );
+  }
+
+  Widget FoodOrderSection() {
+    return Container(
+      height: 180,
+      margin: EdgeInsets.symmetric(horizontal: 10),
+      child: GridView.count(
+        physics: const NeverScrollableScrollPhysics(),
+        crossAxisCount: 2,
+        crossAxisSpacing: 2,
+        mainAxisSpacing: 2,
+        childAspectRatio: 1 / .5,
+        children: [
+          FoodOrderCard("assets/FoodOfferCard4.jpg", "Raju Chinese Festival",
+              "43 mins", "30% OFF UpTo Rs.40"),
+          FoodOrderCard("assets/FoodOfferCard3.jpg", "Subway", "21 mins",
+              "20% OFF upto Rs.50"),
+          FoodOrderCard("assets/FoodOfferCard2.jpg", "Subway", "21 mins",
+              "20% OFF upto Rs.50"),
+          FoodOrderCard("assets/FoodOfferCard1.jpg", "Subway", "21 mins",
+              "20% OFF upto Rs.50"),
+        ],
       ),
     );
   }
@@ -151,24 +160,22 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Flexible FoodScrollCards() {
-    return Flexible(
-      child: SizedBox(
-        height: 150,
-        child: ListView(
-          scrollDirection: Axis.horizontal,
-          children: <Widget>[
-            FoodCards("assets/FoodOfferCard4.jpg"),
-            FoodCards("assets/FoodOfferCard3.jpg"),
-            FoodCards("assets/FoodOfferCard2.jpg"),
-            FoodCards("assets/FoodOfferCard1.jpg"),
-          ],
-        ),
+  Widget FoodScrollCards() {
+    return SizedBox(
+      height: 150,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        children: <Widget>[
+          FoodCards("assets/FoodOfferCard4.jpg"),
+          FoodCards("assets/FoodOfferCard3.jpg"),
+          FoodCards("assets/FoodOfferCard2.jpg"),
+          FoodCards("assets/FoodOfferCard1.jpg"),
+        ],
       ),
     );
   }
 
-  Container FoodCards(String CardImg) {
+  Widget FoodCards(String CardImg) {
     return Container(
       padding: EdgeInsets.only(left: 10),
       margin: EdgeInsets.symmetric(horizontal: 1, vertical: 10),
@@ -183,22 +190,19 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Flexible FoodCategoryBar() {
-    return Flexible(
-      // flex: 2,
-      child: SizedBox(
-        height: 40,
-        child: Padding(
-          padding: EdgeInsets.only(left: 10),
-          child: ListView(
-            scrollDirection: Axis.horizontal,
-            children: <Widget>[
-              FoodCategory("Veg Food"),
-              FoodCategory("Non-Veg Food"),
-              FoodCategory("Fast Food"),
-              FoodCategory("Healthy Food"),
-            ],
-          ),
+  Widget FoodCategoryBar() {
+    return SizedBox(
+      height: 40,
+      child: Padding(
+        padding: EdgeInsets.only(left: 10),
+        child: ListView(
+          scrollDirection: Axis.horizontal,
+          children: <Widget>[
+            FoodCategory("Veg Food"),
+            FoodCategory("Non-Veg Food"),
+            FoodCategory("Fast Food"),
+            FoodCategory("Healthy Food"),
+          ],
         ),
       ),
     );
